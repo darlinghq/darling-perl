@@ -1,0 +1,3 @@
+  regcomp.c	These tests have been moved to t/re/reg_mesg.t
+
+__END__
