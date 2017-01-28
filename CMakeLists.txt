@@ -14,6 +14,8 @@ add_definitions(
 	-DPERL_CORE
 	-DPERL_DARWIN
 
+	-DDOINIT=1
+
 	-Wno-pointer-bool-conversion
 	-Wno-typedef-redefinition
 	-Wno-logical-not-parentheses
