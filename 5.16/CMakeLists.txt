@@ -46,6 +46,6 @@ add_library(perl-5.16-static STATIC
 	gen/DynaLoader.c
 )
 
-#add_darling_executable(perl5.16 perlmain.c)
+add_darling_executable(perl5.16 gen/perlmain.c)
 
-#install(TARGETS perl5.16 DESTINATION libexec/darling/usr/bin)
+install(TARGETS perl5.16 DESTINATION libexec/darling/usr/bin)

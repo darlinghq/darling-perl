@@ -20,6 +20,7 @@ add_definitions(
 	-Wno-tautological-constant-out-of-range-compare
 	-Wno-format
 	-Wno-pointer-sign
+	-Wno-macro-redefined
 )
 	
 include_directories(
@@ -31,3 +32,5 @@ add_subdirectory(5.16)
 add_subdirectory(5.18)
 
 install(DIRECTORY man DESTINATION libexec/darling/usr/share)
+
+install(DIRECTORY symlinks/bin DESTINATION libexec/darling/usr)

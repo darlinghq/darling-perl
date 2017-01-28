@@ -35,7 +35,7 @@ add_library(perl-5.18-static STATIC
 	taint.c
 	deb.c
 	universal.c
-	#globals.c		FIXME: Not working
+	globals.c
 	perlio.c
 	perlapi.c
 	numeric.c
@@ -46,7 +46,6 @@ add_library(perl-5.18-static STATIC
 	gen/DynaLoader.c
 )
 
-#add_darling_executable(perl5.18 perlmain.c)
+add_darling_executable(perl5.18 gen/perlmain.c)
 
-#install(TARGETS perl5.18 DESTINATION libexec/darling/usr/bin)
-#InstallSymlink(perl5.18 DESTINATION libexec/darling/usr/bin/perl)
+install(TARGETS perl5.18 DESTINATION libexec/darling/usr/bin)
