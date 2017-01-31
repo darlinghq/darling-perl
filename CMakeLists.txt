@@ -14,8 +14,6 @@ add_definitions(
 	-DPERL_CORE
 	-DPERL_DARWIN
 
-	-DDOINIT=1
-
 	-Wno-pointer-bool-conversion
 	-Wno-typedef-redefinition
 	-Wno-logical-not-parentheses
@@ -36,3 +34,5 @@ add_subdirectory(5.18)
 install(DIRECTORY man DESTINATION libexec/darling/usr/share)
 
 install(DIRECTORY symlinks/bin DESTINATION libexec/darling/usr)
+
+install(DIRECTORY Perl DESTINATION libexec/darling/System/Library)

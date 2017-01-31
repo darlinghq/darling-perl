@@ -934,8 +934,8 @@
  *	This symbol contains the ~name expanded version of ARCHLIB, to be used
  *	in programs that are not prepared to deal with ~ expansion at run-time.
  */
-#define ARCHLIB "/usr/lib/perl5/5.18.2/darwin-thread-multi-2level"		/**/
-#define ARCHLIB_EXP "/usr/lib/perl5/5.18.2/darwin-thread-multi-2level"		/**/
+#define ARCHLIB "/System/Library/Perl/5.18/darwin-thread-multi-2level"		/**/
+#define ARCHLIB_EXP "/System/Library/Perl/5.18/darwin-thread-multi-2level"		/**/
 
 /* ARCHNAME:
  *	This symbol holds a string representing the architecture name.
@@ -3045,8 +3045,8 @@
  *	This symbol contains the ~name expanded version of PRIVLIB, to be used
  *	in programs that are not prepared to deal with ~ expansion at run-time.
  */
-#define PRIVLIB "/usr/lib/perl5/5.18.2"		/**/
-#define PRIVLIB_EXP "/usr/lib/perl5/5.18.2"		/**/
+#define PRIVLIB "/System/Library/Perl/5.18"		/**/
+#define PRIVLIB_EXP "/System/Library/Perl/5.18"		/**/
 
 /* CAN_PROTOTYPE:
  *	If defined, this macro indicates that the C compiler can handle

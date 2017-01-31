@@ -5,7 +5,7 @@ include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/gen
 )
 
-add_library(perl-5.18-static STATIC
+add_library(perllib5.18 OBJECT
 	op.c
 	perl.c
 	gv.c
@@ -46,6 +46,7 @@ add_library(perl-5.18-static STATIC
 	gen/DynaLoader.c
 )
 
-add_darling_executable(perl5.18 gen/perlmain.c)
+set_source_files_properties(FILES gen/perlmain.c PROPERTIES COMPILE_FLAGS "-DDOINIT")
+add_darling_executable(perl5.18 gen/perlmain.c $<TARGET_OBJECTS:perllib5.18>)
 
 install(TARGETS perl5.18 DESTINATION libexec/darling/usr/bin)
