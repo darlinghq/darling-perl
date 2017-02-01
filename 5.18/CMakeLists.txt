@@ -5,7 +5,7 @@ include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/gen
 )
 
-add_library(perllib5.18 OBJECT
+add_library(perlcore OBJECT
 	op.c
 	perl.c
 	gv.c
@@ -47,6 +47,16 @@ add_library(perllib5.18 OBJECT
 )
 
 set_source_files_properties(FILES gen/perlmain.c PROPERTIES COMPILE_FLAGS "-DDOINIT")
-add_darling_executable(perl5.18 gen/perlmain.c $<TARGET_OBJECTS:perllib5.18>)
+add_darling_executable(perl5.18 gen/perlmain.c $<TARGET_OBJECTS:perlcore>)
+set_target_properties(perl5.18 perlcore PROPERTIES COMPILE_FLAGS "-DPERL_CORE")
 
 install(TARGETS perl5.18 DESTINATION libexec/darling/usr/bin)
+
+# Bundles
+set(bundir "libexec/darling/System/Library/Perl/5.18/darwin-thread-multi-2level/auto")
+set(bunexdir "libexec/darling/System/Library/Perl/Extras/5.18/darwin-thread-multi-2level/auto")
+
+add_bundle(B gen/ext/B/B.c)
+target_include_directories(B PRIVATE gen/ext/B ext/B)
+target_compile_definitions(B PRIVATE -DVERSION="1.35" -DXS_VERSION="1.35")
+install(TARGETS B DESTINATION "${bundir}/B")

@@ -1,6 +1,6 @@
 project(perl)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -nostdinc -fwrapv -fPIC -std=c89 -ansi -fno-common -fno-strict-aliasing -pipe -fstack-protector")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -nostdinc -fwrapv -fPIC -std=c89 -ansi -fno-common -fno-strict-aliasing -pipe -fstack-protector -c")
 
 set(CMAKE_SHARED_LINKER_FLAGS "-nodefaultlibs -nostdlib -fPIC -Wl,--version-script=${DARLING_TOP_DIRECTORY}/darwin.map")
 
@@ -11,7 +11,6 @@ SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 add_definitions(
-	-DPERL_CORE
 	-DPERL_DARWIN
 
 	-Wno-pointer-bool-conversion
@@ -21,12 +20,18 @@ add_definitions(
 	-Wno-format
 	-Wno-pointer-sign
 	-Wno-macro-redefined
+	-Wno-int-conversion
+	-Wno-incompatible-pointer-types
 )
-	
+
 include_directories(
-	${CMAKE_CURRENT_SOURCE_DIR}/include
 	${CMAKE_SOURCE_DIR}/platform-include
 )
+
+function(add_bundle name sources)
+	add_library(${name} ${sources})
+	set_target_properties(${name} PROPERTIES COMPILE_FLAGS "-bundle" PREFIX "" SUFFIX ".bundle")
+endfunction(add_bundle)
 
 add_subdirectory(5.16)
 add_subdirectory(5.18)
