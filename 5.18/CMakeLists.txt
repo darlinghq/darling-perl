@@ -56,7 +56,9 @@ install(TARGETS perl5.18 DESTINATION libexec/darling/usr/bin)
 set(bundir "libexec/darling/System/Library/Perl/5.18/darwin-thread-multi-2level/auto")
 set(bunexdir "libexec/darling/System/Library/Perl/Extras/5.18/darwin-thread-multi-2level/auto")
 
-add_bundle(B gen/ext/B/B.c)
+add_bundle(B
+	gen/ext/B/B.c
+)
 target_include_directories(B PRIVATE gen/ext/B ext/B)
 target_compile_definitions(B PRIVATE -DVERSION="1.35" -DXS_VERSION="1.35")
 install(TARGETS B DESTINATION "${bundir}/B")
@@ -92,3 +94,10 @@ add_bundle(Zlib
 target_include_directories(Zlib PRIVATE cpan/Compress-Raw-Zlib/zlib-src cpan/Compress-Raw-Zlib/fallback)
 target_compile_definitions(Zlib PRIVATE -DVERSION="2.048" -DXS_VERSION="2.048" -DNO_VIZ -DZ_SOLO -DGZIP_OS_CODE=3)
 install(TARGETS Zlib DESTINATION "${bundir}/Compress/Raw/Zlib")
+
+add_bundle(Cwd
+	gen/dist/Cwd/Cwd.c
+)
+target_include_directories(Cwd PRIVATE gen/dist/Cwd)
+target_compile_definitions(Cwd PRIVATE -DVERSION="3.39_02" -DXS_VERSION="3.39_02")
+install(TARGETS Cwd DESTINATION "${bundir}/Cwd")
