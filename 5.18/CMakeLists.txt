@@ -101,3 +101,11 @@ add_bundle(Cwd
 target_include_directories(Cwd PRIVATE gen/dist/Cwd)
 target_compile_definitions(Cwd PRIVATE -DVERSION="3.39_02" -DXS_VERSION="3.39_02")
 install(TARGETS Cwd DESTINATION "${bundir}/Cwd")
+
+add_bundle(DB_File
+	gen/cpan/DB_File/DB_File.c
+	cpan/DB_File/version.c
+)
+target_include_directories(DB_File PRIVATE gen/cpan/DB_File cpan/DB_File)
+target_compile_definitions(DB_File PRIVATE -DVERSION="1.826" -DXS_VERSION="1.826" -D_NOT_CORE -DmDB_Prefix_t=size_t -DmDB_Hash_t=u_int32_t)
+install(TARGETS DB_File DESTINATION "${bundir}/DB_File")
