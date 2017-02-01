@@ -106,6 +106,12 @@ add_bundle(DB_File
 	gen/cpan/DB_File/DB_File.c
 	cpan/DB_File/version.c
 )
-target_include_directories(DB_File PRIVATE gen/cpan/DB_File cpan/DB_File)
+target_include_directories(DB_File PRIVATE gen/cpan/DB_File)
 target_compile_definitions(DB_File PRIVATE -DVERSION="1.826" -DXS_VERSION="1.826" -D_NOT_CORE -DmDB_Prefix_t=size_t -DmDB_Hash_t=u_int32_t)
 install(TARGETS DB_File DESTINATION "${bundir}/DB_File")
+
+add_bundle(Dumper
+	gen/dist/Data-Dumper/Dumper.c
+)
+target_compile_definitions(Dumper PRIVATE -DVERSION="2.135_06" -DXS_VERSION="2.135_06")
+install(TARGETS Dumper DESTINATION ${bundir}/Data/Dumper)
