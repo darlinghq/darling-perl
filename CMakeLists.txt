@@ -22,6 +22,7 @@ add_definitions(
 	-Wno-macro-redefined
 	-Wno-int-conversion
 	-Wno-incompatible-pointer-types
+	-Wno-shift-negative-value
 )
 
 include_directories(

@@ -74,3 +74,21 @@ add_bundle(Bzip2
 target_include_directories(Bzip2 PRIVATE cpan/Compress-Raw-Bzip2/bzip2-src cpan/Compress-Raw-Bzip2/fallback)
 target_compile_definitions(Bzip2 PRIVATE -DVERSION="2.048" -DXS_VERSION="2.048" -DBZ_NO_STDIO)
 install(TARGETS Bzip2 DESTINATION "${bundir}/Compress/Raw/Bzip2")
+
+add_bundle(Zlib
+	gen/cpan/Compress-Raw-Zlib/zlib-src/Zlib.c
+	cpan/Compress-Raw-Zlib/zlib-src/adler32.c
+	cpan/Compress-Raw-Zlib/zlib-src/crc32.c
+	cpan/Compress-Raw-Zlib/zlib-src/infback.c
+	cpan/Compress-Raw-Zlib/zlib-src/inflate.c
+	cpan/Compress-Raw-Zlib/zlib-src/uncompr.c
+	cpan/Compress-Raw-Zlib/zlib-src/compress.c
+	cpan/Compress-Raw-Zlib/zlib-src/deflate.c
+	cpan/Compress-Raw-Zlib/zlib-src/inffast.c
+	cpan/Compress-Raw-Zlib/zlib-src/inftrees.c
+	cpan/Compress-Raw-Zlib/zlib-src/trees.c
+	cpan/Compress-Raw-Zlib/zlib-src/zutil.c
+)
+target_include_directories(Zlib PRIVATE cpan/Compress-Raw-Zlib/zlib-src cpan/Compress-Raw-Zlib/fallback)
+target_compile_definitions(Zlib PRIVATE -DVERSION="2.048" -DXS_VERSION="2.048" -DNO_VIZ -DZ_SOLO -DGZIP_OS_CODE=3)
+install(TARGETS Zlib DESTINATION "${bundir}/Compress/Raw/Zlib")
