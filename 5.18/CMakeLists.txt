@@ -114,4 +114,13 @@ add_bundle(Dumper
 	gen/dist/Data-Dumper/Dumper.c
 )
 target_compile_definitions(Dumper PRIVATE -DVERSION="2.135_06" -DXS_VERSION="2.135_06")
-install(TARGETS Dumper DESTINATION ${bundir}/Data/Dumper)
+install(TARGETS Dumper DESTINATION "${bundir}/Data/Dumper")
+
+add_bundle(PPPort
+	gen/cpan/Devel-PPPort/RealPPPort.c
+	cpan/Devel-PPPort/module2.c
+	cpan/Devel-PPPort/module3.c
+)
+target_include_directories(PPPort PRIVATE gen/cpan/Devel-PPPort)
+target_compile_definitions(PPPort PRIVATE -DVERSION="3.20" -DXS_VERSION="3.20")
+install(TARGETS PPPort DESTINATION "${bundir}/Devel/PPPort")
