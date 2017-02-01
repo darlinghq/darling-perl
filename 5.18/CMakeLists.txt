@@ -60,3 +60,17 @@ add_bundle(B gen/ext/B/B.c)
 target_include_directories(B PRIVATE gen/ext/B ext/B)
 target_compile_definitions(B PRIVATE -DVERSION="1.35" -DXS_VERSION="1.35")
 install(TARGETS B DESTINATION "${bundir}/B")
+
+add_bundle(Bzip2
+	cpan/Compress-Raw-Bzip2/bzip2-src/blocksort.c
+	cpan/Compress-Raw-Bzip2/bzip2-src/huffman.c
+	cpan/Compress-Raw-Bzip2/bzip2-src/crctable.c
+	cpan/Compress-Raw-Bzip2/bzip2-src/randtable.c
+	cpan/Compress-Raw-Bzip2/bzip2-src/compress.c
+	cpan/Compress-Raw-Bzip2/bzip2-src/decompress.c
+	cpan/Compress-Raw-Bzip2/bzip2-src/bzlib.c
+	gen/cpan/Compress-Raw-Bzip2/bzip2-src/Bzip2.c
+)
+target_include_directories(Bzip2 PRIVATE cpan/Compress-Raw-Bzip2/bzip2-src cpan/Compress-Raw-Bzip2/fallback)
+target_compile_definitions(Bzip2 PRIVATE -DVERSION="2.048" -DXS_VERSION="2.048" -DBZ_NO_STDIO)
+install(TARGETS Bzip2 DESTINATION "${bundir}/Compress/Raw/Bzip2")

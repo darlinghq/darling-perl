@@ -28,7 +28,10 @@ include_directories(
 	${CMAKE_SOURCE_DIR}/platform-include
 )
 
-function(add_bundle name sources)
+function(add_bundle name)
+	foreach(f IN LISTS ARGN)
+		set(sources ${sources} ${f})
+	endforeach(f)
 	add_library(${name} ${sources})
 	set_target_properties(${name} PROPERTIES COMPILE_FLAGS "-bundle" PREFIX "" SUFFIX ".bundle")
 endfunction(add_bundle)
