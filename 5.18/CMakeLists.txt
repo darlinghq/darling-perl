@@ -124,3 +124,9 @@ add_bundle(PPPort
 target_include_directories(PPPort PRIVATE gen/cpan/Devel-PPPort)
 target_compile_definitions(PPPort PRIVATE -DVERSION="3.20" -DXS_VERSION="3.20")
 install(TARGETS PPPort DESTINATION "${bundir}/Devel/PPPort")
+
+add_bundle(Peek
+	gen/ext/Devel-Peek/Peek.c
+)
+target_compile_definitions(Peek PRIVATE -DVERSION="1.08" -DXS_VERSION="1.08")
+install(TARGETS Peek DESTINATION "${bundir}/Devel/Peek")
