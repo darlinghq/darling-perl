@@ -130,3 +130,16 @@ add_bundle(Peek
 )
 target_compile_definitions(Peek PRIVATE -DVERSION="1.08" -DXS_VERSION="1.08")
 install(TARGETS Peek DESTINATION "${bundir}/Devel/Peek")
+
+add_bundle(MD5
+	gen/cpan/Digest-MD5/MD5.c
+)
+target_compile_definitions(MD5 PRIVATE -DVERSION="2.51" -DXS_VERSION="2.51" -DU32_ALIGNMENT_REQUIRED)
+install(TARGETS MD5 DESTINATION "${bundir}/Digest/MD5")
+
+add_bundle(SHA
+	gen/cpan/Digest-SHA/SHA.c
+)
+target_include_directories(SHA PRIVATE cpan/Digest-SHA)
+target_compile_definitions(SHA PRIVATE -DVERSION="5.71" -DXS_VERSION="5.71" -DSHA_PERL_MODULE)
+install(TARGETS MD5 DESTINATION "${bundir}/Digest/SHA")
