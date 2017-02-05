@@ -143,3 +143,20 @@ add_bundle(SHA
 target_include_directories(SHA PRIVATE cpan/Digest-SHA)
 target_compile_definitions(SHA PRIVATE -DVERSION="5.71" -DXS_VERSION="5.71" -DSHA_PERL_MODULE)
 install(TARGETS MD5 DESTINATION "${bundir}/Digest/SHA")
+
+add_bundle(Encode
+	gen/cpan/Encode/Encode.c
+	cpan/Encode/encengine.c
+	gen/cpan/Encode/def_t.c
+)
+target_include_directories(Encode PRIVATE cpan/Encode/Encode gen/cpan/Encode)
+target_compile_definitions(Encode PRIVATE -DVERSION="2.44_01" -DXS_VERSION="2.44_01")
+install(TARGETS Encode DESTINATION "${bundir}/Encode")
+
+add_bundle(Byte
+	gen/cpan/Encode/Byte/Byte.c
+	gen/cpan/Encode/Byte/byte_t.c
+)
+target_include_directories(Byte PRIVATE cpan/Encode/Encode gen/cpan/Encode/Byte)
+target_compile_definitions(Byte PRIVATE -DVERSION="2.04" -DXS_VERSION="2.04")
+install(TARGETS Byte DESTINATION "${bundir}/Encode/Byte")
