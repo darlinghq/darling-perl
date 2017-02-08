@@ -225,3 +225,10 @@ add_bundle(TW
 target_include_directories(TW PRIVATE cpan/Encode/Encode gen/cpan/Encode/TW)
 target_compile_definitions(TW PRIVATE -DVERSION="2.03" -DXS_VERSION="2.03")
 install(TARGETS TW DESTINATION "${bundir}/Encode/TW")
+
+add_bundle(Unicode
+	gen/cpan/Encode/Unicode/Unicode.c
+)
+target_include_directories(Unicode PRIVATE cpan/Encode/Encode)
+target_compile_definitions(Unicode PRIVATE -DVERSION="2.07" -DXS_VERSION="2.07")
+install(TARGETS Unicode DESTINATION "${bundir}/Encode/Unicode")
