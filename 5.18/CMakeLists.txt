@@ -206,3 +206,11 @@ add_bundle(KR
 target_include_directories(KR PRIVATE cpan/Encode/Encode gen/cpan/Encode/KR)
 target_compile_definitions(KR PRIVATE -DVERSION="2.03" -DXS_VERSION="2.03")
 install(TARGETS KR DESTINATION "${bundir}/Encode/KR")
+
+add_bundle(Symbol
+	gen/cpan/Encode/Symbol/Symbol.c
+	gen/cpan/Encode/Symbol/symbol_t.c
+)
+target_include_directories(Symbol PRIVATE cpan/Encode/Encode gen/cpan/Encode/Symbol)
+target_compile_definitions(Symbol PRIVATE -DVERSION="2.02" -DXS_VERSION="2.02")
+install(TARGETS Symbol DESTINATION "${bundir}/Encode/Symbol")
