@@ -181,3 +181,16 @@ add_bundle(EBCDIC
 target_include_directories(EBCDIC PRIVATE cpan/Encode/Encode gen/cpan/Encode/EBCDIC)
 target_compile_definitions(EBCDIC PRIVATE -DVERSION="2.02" -DXS_VERSION="2.02")
 install(TARGETS EBCDIC DESTINATION "${bundir}/Encode/EBCDIC")
+
+add_bundle(JP
+	gen/cpan/Encode/JP/cp_00_t.c
+	gen/cpan/Encode/JP/eu_01_t.c
+	gen/cpan/Encode/JP/ji_02_t.c
+	gen/cpan/Encode/JP/ji_03_t.c
+	gen/cpan/Encode/JP/ji_04_t.c
+	gen/cpan/Encode/JP/ma_05_t.c
+	gen/cpan/Encode/JP/sh_06_t.c
+)
+target_include_directories(JP PRIVATE cpan/Encode/Encode gen/cpan/Encode/JP)
+target_compile_definitions(JP PRIVATE -DVERSION="2.04" -DXS_VERSION="2.04")
+install(TARGETS JP DESTINATION "${bundir}/Encode/JP")
