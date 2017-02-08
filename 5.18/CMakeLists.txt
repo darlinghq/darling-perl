@@ -173,3 +173,11 @@ add_bundle(CN
 target_include_directories(CN PRIVATE cpan/Encode/Encode gen/cpan/Encode/CN)
 target_compile_definitions(CN PRIVATE -DVERSION="2.03" -DXS_VERSION="2.03")
 install(TARGETS CN DESTINATION "${bundir}/Encode/CN")
+
+add_bundle(EBCDIC
+	gen/cpan/Encode/EBCDIC/EBCDIC.c
+	gen/cpan/Encode/EBCDIC/ebcdic_t.c
+)
+target_include_directories(EBCDIC PRIVATE cpan/Encode/Encode gen/cpan/Encode/EBCDIC)
+target_compile_definitions(EBCDIC PRIVATE -DVERSION="2.02" -DXS_VERSION="2.02")
+install(TARGETS EBCDIC DESTINATION "${bundir}/Encode/EBCDIC")
