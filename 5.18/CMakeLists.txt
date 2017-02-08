@@ -194,3 +194,15 @@ add_bundle(JP
 target_include_directories(JP PRIVATE cpan/Encode/Encode gen/cpan/Encode/JP)
 target_compile_definitions(JP PRIVATE -DVERSION="2.04" -DXS_VERSION="2.04")
 install(TARGETS JP DESTINATION "${bundir}/Encode/JP")
+
+add_bundle(KR
+	gen/cpan/Encode/KR/KR.c
+	gen/cpan/Encode/KR/cp_00_t.c
+	gen/cpan/Encode/KR/eu_01_t.c
+	gen/cpan/Encode/KR/jo_02_t.c
+	gen/cpan/Encode/KR/ks_03_t.c
+	gen/cpan/Encode/KR/ma_04_t.c
+)
+target_include_directories(KR PRIVATE cpan/Encode/Encode gen/cpan/Encode/KR)
+target_compile_definitions(KR PRIVATE -DVERSION="2.03" -DXS_VERSION="2.03")
+install(TARGETS KR DESTINATION "${bundir}/Encode/KR")
