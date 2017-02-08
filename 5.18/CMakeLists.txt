@@ -214,3 +214,14 @@ add_bundle(Symbol
 target_include_directories(Symbol PRIVATE cpan/Encode/Encode gen/cpan/Encode/Symbol)
 target_compile_definitions(Symbol PRIVATE -DVERSION="2.02" -DXS_VERSION="2.02")
 install(TARGETS Symbol DESTINATION "${bundir}/Encode/Symbol")
+
+add_bundle(TW
+	gen/cpan/Encode/TW/TW.c
+	gen/cpan/Encode/TW/bi_00_t.c
+	gen/cpan/Encode/TW/bi_01_t.c
+	gen/cpan/Encode/TW/cp_02_t.c
+	gen/cpan/Encode/TW/ma_03_t.c
+)
+target_include_directories(TW PRIVATE cpan/Encode/Encode gen/cpan/Encode/TW)
+target_compile_definitions(TW PRIVATE -DVERSION="2.03" -DXS_VERSION="2.03")
+install(TARGETS TW DESTINATION "${bundir}/Encode/TW")
