@@ -160,3 +160,16 @@ add_bundle(Byte
 target_include_directories(Byte PRIVATE cpan/Encode/Encode gen/cpan/Encode/Byte)
 target_compile_definitions(Byte PRIVATE -DVERSION="2.04" -DXS_VERSION="2.04")
 install(TARGETS Byte DESTINATION "${bundir}/Encode/Byte")
+
+add_bundle(CN
+	gen/cpan/Encode/CN/CN.c
+	gen/cpan/Encode/CN/cp_00_t.c
+	gen/cpan/Encode/CN/eu_01_t.c
+	gen/cpan/Encode/CN/gb_02_t.c
+	gen/cpan/Encode/CN/gb_03_t.c
+	gen/cpan/Encode/CN/ir_04_t.c
+	gen/cpan/Encode/CN/ma_05_t.c
+)
+target_include_directories(CN PRIVATE cpan/Encode/Encode gen/cpan/Encode/CN)
+target_compile_definitions(CN PRIVATE -DVERSION="2.03" -DXS_VERSION="2.03")
+install(TARGETS CN DESTINATION "${bundir}/Encode/CN")
