@@ -238,4 +238,30 @@ add_bundle(Fcntl
 )
 target_include_directories(Fcntl PRIVATE ext/Fcntl)
 target_compile_definitions(Fcntl PRIVATE -DVERSION="1.11" -DXS_VERSION="1.11")
-install(TARGETS Fcntl DESTINATION "${bundir}")
+install(TARGETS Fcntl DESTINATION "${bundir}/Fcntl")
+
+add_bundle(Glob
+	gen/ext/File-Glob/Glob.c
+	ext/File-Glob/bsd_glob.c
+)
+target_include_directories(Glob PRIVATE ext/File-Glob gen/ext/File-Glob)
+target_compile_definitions(Glob PRIVATE -DVERSION="1.17" -DXS_VERSION="1.17")
+install(TARGETS Glob DESTINATION "${bundir}/File/Glob")
+
+add_bundle(Call
+	gen/cpan/Filter-Util-Call/Call.c
+)
+target_compile_definitions(Call PRIVATE -DVERSION="1.40" -DXS_VERSION="1.40")
+install(TARGETS Call DESTINATION "${bundir}/Filter/Util/Call")
+
+add_bundle(Util
+	gen/ext/Hash-Util/Util.c
+)
+target_compile_definitions(Util PRIVATE -DVERSION="0.11" -DXS_VERSION="0.11" -DPERL_EXT)
+install(TARGETS Util DESTINATION "${bundir}/Hash/Util")
+
+add_bundle(FieldHash
+	gen/ext/Hash-Util-FieldHash/FieldHash.c
+)
+target_compile_definitions(FieldHash PRIVATE -DVERSION="1.10" -DXS_VERSION="1.10")
+install(TARGETS FieldHash DESTINATION "${bundir}/Hash/Util/FieldHash")
