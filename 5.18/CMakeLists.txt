@@ -232,3 +232,10 @@ add_bundle(Unicode
 target_include_directories(Unicode PRIVATE cpan/Encode/Encode)
 target_compile_definitions(Unicode PRIVATE -DVERSION="2.07" -DXS_VERSION="2.07")
 install(TARGETS Unicode DESTINATION "${bundir}/Encode/Unicode")
+
+add_bundle(Fcntl
+	gen/ext/Fcntl/Fcntl.c
+)
+target_include_directories(Fcntl PRIVATE ext/Fcntl)
+target_compile_definitions(Fcntl PRIVATE -DVERSION="1.11" -DXS_VERSION="1.11")
+install(TARGETS Fcntl DESTINATION "${bundir}")
