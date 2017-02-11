@@ -265,3 +265,33 @@ add_bundle(FieldHash
 )
 target_compile_definitions(FieldHash PRIVATE -DVERSION="1.10" -DXS_VERSION="1.10")
 install(TARGETS FieldHash DESTINATION "${bundir}/Hash/Util/FieldHash")
+
+add_bundle(Langinfo
+	gen/ext/I18N-Langinfo/Langinfo.c
+)
+target_include_directories(Langinfo PRIVATE gen/ext/I18N-Langinfo)
+target_compile_definitions(Langinfo PRIVATE -DVERSION="0.08_02" -DXS_VERSION="0.08_02")
+install(TARGETS Langinfo DESTINATION "${bundir}/I18N/Langinfo")
+
+add_bundle(IO
+	gen/dist/IO/IO.c
+	gen/dist/IO/poll.c
+)
+target_compile_definitions(IO PRIVATE -DVERSION="1.25_06" -DXS_VERSION="1.25_06")
+install(TARGETS IO DESTINATION "${bundir}/IO")
+
+add_bundle(SysV
+	gen/cpan/IPC-SysV/SysV.c
+)
+target_include_directories(SysV PRIVATE gen/cpan/IPC-SysV)
+target_compile_definitions(SysV PRIVATE -DVERSION="2.03" -DXS_VERSION="2.03")
+install(TARGETS SysV DESTINATION "${bundir}/IPC/SysV")
+
+add_bundle(List-Util
+	gen/cpan/List-Util/ListUtil.c
+)
+# It has the same name as another target named "Util"
+set_target_properties(List-Util PROPERTIES LIBRARY_OUTPUT_NAME Util LIBRARY_OUTPUT_DIRECTORY "List")
+target_include_directories(List-Util PRIVATE gen/cpan/List-Util cpan/List-Util)
+target_compile_definitions(List-Util PRIVATE -DVERSION="1.25" -DXS_VERSION="1.25")
+install(TARGETS List-Util DESTINATION "${bundir}/List/Util" RENAME Util)
