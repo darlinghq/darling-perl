@@ -295,3 +295,83 @@ set_target_properties(List-Util PROPERTIES LIBRARY_OUTPUT_NAME Util LIBRARY_OUTP
 target_include_directories(List-Util PRIVATE gen/cpan/List-Util cpan/List-Util)
 target_compile_definitions(List-Util PRIVATE -DVERSION="1.25" -DXS_VERSION="1.25")
 install(TARGETS List-Util DESTINATION "${bundir}/List/Util" RENAME Util)
+
+add_bundle(Base64
+	gen/cpan/MIME-Base64/Base64.c
+)
+target_compile_definitions(Base64 PRIVATE -DVERSION="3.13" -DXS_VERSION="3.13")
+install(TARGETS Base64 DESTINATION "${bundir}/MIME/Base64")
+
+add_bundle(FastCalc
+	gen/dist/Math-BigInt-FastCalc/FastCalc.c
+)
+target_compile_definitions(FastCalc PRIVATE -DVERSION="0.30" -DXS_VERSION="0.30")
+install(TARGETS FastCalc DESTINATION "${bundir}/Math/BigInt/FastCalc")
+
+add_bundle(NDBM_File
+	gen/ext/NDBM_File/NDBM_File.c
+)
+target_compile_definitions(NDBM_File PRIVATE -DVERSION="1.12" -DXS_VERSION="1.12")
+install(TARGETS NDBM_File DESTINATION "${bundir}/NDBM_File")
+
+add_bundle(Opcode
+	gen/ext/Opcode/Opcode.c
+)
+target_compile_definitions(Opcode PRIVATE -DVERSION="1.23" -DXS_VERSION="1.23")
+install(TARGETS Opcode DESTINATION "${bundir}/Opcode")
+
+add_bundle(POSIX
+	gen/ext/POSIX/POSIX.c
+)
+target_include_directories(POSIX PRIVATE gen/ext/POSIX)
+target_compile_definitions(POSIX PRIVATE -DVERSION="1.30" -DXS_VERSION="1.30")
+install(TARGETS POSIX DESTINATION "${bundir}/POSIX")
+
+add_bundle(encoding
+	gen/ext/PerlIO-encoding/encoding.c
+)
+target_compile_definitions(encoding PRIVATE -DVERSION="0.15" -DXS_VERSION="0.15")
+install(TARGETS encoding DESTINATION "${bundir}/PerlIO/encoding")
+
+add_bundle(mmap
+	gen/ext/PerlIO-mmap/mmap.c
+)
+target_compile_definitions(mmap PRIVATE -DVERSION="0.010" -DXS_VERSION="0.010")
+install(TARGETS mmap DESTINATION "${bundir}/PerlIO/mmap")
+
+add_bundle(scalar
+	gen/ext/PerlIO-scalar/scalar.c
+)
+target_compile_definitions(scalar PRIVATE -DVERSION="0.14_01" -DXS_VERSION="0.14_01")
+install(TARGETS scalar DESTINATION "${bundir}/PerlIO/scalar")
+
+add_bundle(via
+	gen/ext/PerlIO-via/via.c
+)
+target_compile_definitions(via PRIVATE -DVERSION="0.12" -DXS_VERSION="0.12")
+install(TARGETS via DESTINATION "${bundir}/PerlIO/via")
+
+add_bundle(SDBM_File
+	gen/ext/SDBM_File/SDBM_File.c
+	gen/ext/SDBM_File/sdbm/pair.c
+	gen/ext/SDBM_File/sdbm/hash.c
+	gen/ext/SDBM_File/sdbm/sdbm.c
+)
+target_include_directories(SDBM_File PRIVATE ext/SDBM_File ext/SDBM_File/sdbm)
+set_source_files_properties(
+	gen/ext/SDBM_File/sdbm/pair.c
+	gen/ext/SDBM_File/sdbm/hash.c
+	gen/ext/SDBM_File/sdbm/sdbm.c
+
+	PROPERTIES COMPILE_FLAGS
+
+	"-DVERSION=\\\"\\\" -DXS_VERSION=\\\"\\\" -DSDBM -DDUFF"
+)
+set_source_files_properties(
+	gen/ext/SDBM_File/SDBM_File.c
+
+	PROPERTIES COMPILE_FLAGS
+
+	"-DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc -DVERSION=\\\"1.09\\\" -DXS_VERSION=\\\"1.09\\\""
+)
+install(TARGETS SDBM_File DESTINATION "${bundir}/SDBM_File")
