@@ -375,3 +375,108 @@ set_source_files_properties(
 	"-DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc -DVERSION=\\\"1.09\\\" -DXS_VERSION=\\\"1.09\\\""
 )
 install(TARGETS SDBM_File DESTINATION "${bundir}/SDBM_File")
+
+add_bundle(Socket
+	gen/cpan/Socket/Socket.c
+)
+target_include_directories(Socket PRIVATE gen/cpan/Socket)
+target_compile_definitions(Socket PRIVATE -DVERSION="2.001" -DXS_VERSION="2.001")
+install(TARGETS Socket DESTINATION "${bundir}/Socket")
+
+add_bundle(Storable
+	gen/dist/Storable/Storable.c
+)
+target_compile_definitions(Storable PRIVATE -DVERSION="2.34" -DXS_VERSION="2.34")
+install(TARGETS Storable DESTINATION "${bundir}/Storable")
+
+add_bundle(Hostname
+	gen/ext/Sys-Hostname/Hostname.c
+)
+target_compile_definitions(Hostname PRIVATE -DVERSION="1.16" -DXS_VERSION="1.16")
+install(TARGETS Hostname DESTINATION "${bundir}/Sys/Hostname")
+
+add_bundle(Syslog
+	gen/cpan/Sys-Syslog/Syslog.c
+)
+target_include_directories(Syslog PRIVATE gen/cpan/Sys-Syslog)
+target_compile_definitions(Syslog PRIVATE -DVERSION="0.29" -DXS_VERSION="0.29")
+install(TARGETS Syslog DESTINATION "${bundir}/Sys/Syslog")
+
+add_bundle(Soundex
+	gen/cpan/Text-Soundex/Soundex.c
+)
+target_compile_definitions(Soundex PRIVATE -DVERSION="3.03_01" -DXS_VERSION="3.03_01")
+install(TARGETS Soundex DESTINATION "${bundir}/Text/Soundex")
+
+add_bundle(NamedCapture
+	gen/ext/Tie-Hash-NamedCapture/NamedCapture.c
+)
+target_compile_definitions(NamedCapture PRIVATE -DVERSION="0.08" -DXS_VERSION="0.08")
+install(TARGETS NamedCapture DESTINATION "${bundir}/Tie/Hash/NamedCapture")
+
+add_bundle(HiRes
+	gen/cpan/Time-HiRes/HiRes.c
+)
+target_include_directories(HiRes PRIVATE gen/cpan/Time-HiRes)
+target_compile_definitions(HiRes PRIVATE -DVERSION="1.9725" -DXS_VERSION="1.9725" -DTIME_HIRES_NANOSLEEP -DTIME_HIRES_CLOCK_GETTIME -DTIME_HIRES_CLOCK_GETRES -DTIME_HIRES_CLOCK -DTIME_HIRES_STAT=1 -DATLEASTFIVEOHOHFIVE)
+install(TARGETS HiRes DESTINATION "${bundir}/Time/HiRes")
+
+add_bundle(Piece
+	gen/cpan/Time-Piece/Piece.c
+)
+target_compile_definitions(Piece PRIVATE -DVERSION="1.20_01" -DXS_VERSION="1.20_01")
+install(TARGETS Piece DESTINATION "${bundir}/Time/Piece")
+
+add_bundle(Collate
+	gen/cpan/Unicode-Collate/Collate.c
+)
+target_include_directories(Collate PRIVATE gen/cpan/Unicode-Collate)
+target_compile_definitions(Collate PRIVATE -DVERSION="0.89" -DXS_VERSION="0.89")
+install(TARGETS Collate DESTINATION "${bundir}/Unicode/Collate")
+
+add_bundle(Normalize
+	gen/cpan/Unicode-Normalize/Normalize.c
+)
+target_include_directories(Normalize PRIVATE gen/cpan/Unicode-Normalize)
+target_compile_definitions(Normalize PRIVATE -DVERSION="1.14" -DXS_VERSION="1.14")
+install(TARGETS Normalize DESTINATION "${bundir}/Unicode/Normalize")
+
+add_bundle(arybase
+	gen/ext/arybase/arybase.c
+)
+target_include_directories(arybase PRIVATE ext/arybase)
+target_compile_definitions(arybase PRIVATE -DVERSION="0.05" -DXS_VERSION="0.05")
+install(TARGETS arybase DESTINATION "${bundir}/arybase")
+
+add_bundle(attributes
+	gen/ext/attributes/attributes.c
+)
+target_compile_definitions(attributes PRIVATE -DVERSION="0.19" -DXS_VERSION="0.19")
+install(TARGETS attributes DESTINATION "${bundir}/attributes")
+
+add_bundle(mro
+	gen/ext/mro/mro.c
+)
+target_compile_definitions(mro PRIVATE -DVERSION="1.09" -DXS_VERSION="1.09")
+install(TARGETS mro DESTINATION "${bundir}/mro")
+
+add_bundle(re
+	gen/ext/re/re.c
+	gen/ext/re/re_exec.c
+		gen/ext/re/re_comp.c
+)
+target_include_directories(re PRIVATE gen/ext/re ext/re)
+target_compile_definitions(re PRIVATE -DVERSION="0.19_01" -DXS_VERSION="0.19_01" -DPERL_EXT_RE_BUILD -DPERL_EXT_RE_DEBUG -DPERL_EXT)
+install(TARGETS re DESTINATION "${bundir}/re")
+
+add_bundle(threads
+	gen/dist/threads/threads.c
+)
+target_compile_definitions(threads PRIVATE -DVERSION="1.86" -DXS_VERSION="1.86")
+install(TARGETS threads DESTINATION "${bundir}/threads")
+
+add_bundle(shared
+	gen/dist/threads-shared/shared.c
+)
+target_compile_definitions(shared PRIVATE -DVERSION="1.40" -DXS_VERSION="1.40")
+install(TARGETS shared DESTINATION "${bundir}/threads/shared")

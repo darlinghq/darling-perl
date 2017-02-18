@@ -10,9 +10,7 @@ set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/darling
 set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
-add_definitions(
-	-DPERL_DARWIN
-
+add_compile_options(
 	-Wno-pointer-bool-conversion
 	-Wno-typedef-redefinition
 	-Wno-logical-not-parentheses
@@ -23,6 +21,11 @@ add_definitions(
 	-Wno-int-conversion
 	-Wno-incompatible-pointer-types
 	-Wno-shift-negative-value
+	-Wno-unused-value
+)
+
+add_definitions(
+	-DPERL_DARWIN
 )
 
 include_directories(
