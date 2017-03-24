@@ -56,6 +56,16 @@ install(TARGETS perl5.18 DESTINATION libexec/darling/usr/bin)
 set(bundir "libexec/darling/System/Library/Perl/5.18/darwin-thread-multi-2level/auto")
 set(bunexdir "libexec/darling/System/Library/Perl/Extras/5.18/darwin-thread-multi-2level/auto")
 
+function(add_bundle name)
+	foreach(f IN LISTS ARGN)
+		set(sources ${sources} ${f})
+	endforeach(f)
+	add_darling_bundle(${name} ${CMAKE_CURRENT_BINARY_DIR}/perl5.18 ${sources})
+	set_target_properties(${name} PROPERTIES PREFIX "" SUFFIX ".bundle")
+	set_property(TARGET "${name}" APPEND_STRING PROPERTY LINK_FLAGS " -Wl,-flat_namespace ")
+	add_dependencies("${name}" perl5.18)
+endfunction(add_bundle)
+
 add_bundle(B
 	gen/ext/B/B.c
 )
