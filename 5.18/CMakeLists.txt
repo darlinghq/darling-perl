@@ -5,7 +5,7 @@ include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/gen
 )
 
-add_library(perlcore OBJECT
+add_darling_object_library(perlcore
 	op.c
 	perl.c
 	gv.c
@@ -48,7 +48,8 @@ add_library(perlcore OBJECT
 
 set_source_files_properties(FILES gen/perlmain.c PROPERTIES COMPILE_FLAGS "-DDOINIT")
 add_darling_executable(perl5.18 gen/perlmain.c $<TARGET_OBJECTS:perlcore>)
-set_target_properties(perl5.18 perlcore PROPERTIES COMPILE_FLAGS "-DPERL_CORE")
+make_fat(perl5.18)
+set_property(TARGET perl5.18 perlcore APPEND_STRING PROPERTY COMPILE_FLAGS " -DPERL_CORE")
 
 install(TARGETS perl5.18 DESTINATION libexec/darling/usr/bin)
 
