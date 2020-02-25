@@ -26,12 +26,13 @@ include_directories(
 )
 
 include(darling_bundle)
+include(versioner)
+
+versioner(perl "5.16;5.18" "5.18")
 
 add_subdirectory(5.16)
 add_subdirectory(5.18)
 
 install(DIRECTORY man DESTINATION libexec/darling/usr/share)
-
-install(DIRECTORY symlinks/bin DESTINATION libexec/darling/usr)
 
 install(DIRECTORY Perl DESTINATION libexec/darling/System/Library)
