@@ -1,19 +1,14 @@
 project(perl)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -nostdinc -fwrapv -fPIC -std=c89 -ansi -fno-common -fno-strict-aliasing -pipe -fstack-protector")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c89 -fwrapv -fPIC -fno-common -fno-strict-aliasing -pipe -fstack-protector")
 
 add_compile_options(
-	-Wno-pointer-bool-conversion
-	-Wno-typedef-redefinition
-	-Wno-logical-not-parentheses
-	-Wno-tautological-constant-out-of-range-compare
-	-Wno-format
-	-Wno-pointer-sign
-	-Wno-macro-redefined
-	-Wno-int-conversion
-	-Wno-incompatible-pointer-types
-	-Wno-shift-negative-value
-	-Wno-unused-value
+	-w
+)
+
+add_definitions(
+	-ansi
+	-nostdinc
 )
 
 add_definitions(
