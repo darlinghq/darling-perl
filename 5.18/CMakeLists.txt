@@ -152,7 +152,7 @@ add_bundle(SHA
 	gen/cpan/Digest-SHA/SHA.c
 )
 target_include_directories(SHA PRIVATE cpan/Digest-SHA)
-target_compile_definitions(SHA PRIVATE -DVERSION="5.71" -DXS_VERSION="5.71" -DSHA_PERL_MODULE)
+target_compile_definitions(SHA PRIVATE -DVERSION="5.84_01" -DXS_VERSION="5.84_01" -DSHA_PERL_MODULE)
 install(TARGETS SHA DESTINATION "${bundir}/Digest/SHA")
 install(FILES cpan/Digest-SHA/shasum
 	PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
