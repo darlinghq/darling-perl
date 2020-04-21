@@ -153,7 +153,11 @@ add_bundle(SHA
 )
 target_include_directories(SHA PRIVATE cpan/Digest-SHA)
 target_compile_definitions(SHA PRIVATE -DVERSION="5.71" -DXS_VERSION="5.71" -DSHA_PERL_MODULE)
-install(TARGETS MD5 DESTINATION "${bundir}/Digest/SHA")
+install(TARGETS SHA DESTINATION "${bundir}/Digest/SHA")
+install(FILES cpan/Digest-SHA/shasum
+	PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+	DESTINATION "libexec/darling/usr/bin"
+)
 
 add_bundle(Encode
 	gen/cpan/Encode/Encode.c
