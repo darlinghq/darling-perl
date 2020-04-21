@@ -1,4 +1,4 @@
-#!perl -w
+#!/usr/bin/perl -w
 
 	## shasum: filter for computing SHA digests (ref. sha1sum/md5sum)
 	##
