@@ -15,11 +15,6 @@ add_definitions(
 	-DPERL_DARWIN
 )
 
-include_directories(
-	${CMAKE_SOURCE_DIR}/platform-include
-	${CMAKE_SOURCE_DIR}/src/libmalloc/include
-)
-
 include(darling_bundle)
 include(versioner)
 
