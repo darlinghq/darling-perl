@@ -1,0 +1,6 @@
+*~
+*.orig
+*.rej
+
+# Darling additions
+*.tar.*
