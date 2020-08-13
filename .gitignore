@@ -4,3 +4,14 @@
 
 # Darling additions
 *.tar.*
+*.o
+*.dylib
+*.a
+*.bundle
+*.log
+
+.exists
+
+/DSTROOT/usr/bin/a2p5.18
+/DSTROOT/usr/bin/perl5.18
+/DSTROOT/usr/bin/perl5.28

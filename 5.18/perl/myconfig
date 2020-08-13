@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# This script is designed to provide a handy summary of the configuration
+# information being used to build perl. This is especially useful if you
+# are requesting help from comp.lang.perl.misc on usenet or via mail.
+
+# Note that the text lines /^Summary of/ .. /^\s*$/ are copied into Config.pm.
+cat <<'!NO!SUBS!'
+Summary of my perl5 (revision 5 version 18 subversion 4) configuration:
+   
+  Platform:
+    osname=darwin, osvers=19.6.0, archname=darwin-thread-multi-2level
+    uname='darwin ari-pavilion.cfl.rr.com 19.6.0 darwin kernel version 19.6.0: sun jul 5 00:43:10 pdt 2020; root:xnu-6153.141.1~9release_x86_64 x86_64 '
+    config_args='-ds -e -Dprefix=/usr -Dccflags=-arch x86_64 -arch i386 -isystem/Users/ariel/git/darling/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -isystem/Users/ariel/arch/build/darling/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -isystem/Users/ariel/git/darling/framework-include -DDARLING -Dldflags= -Dman3ext=3pm -Duseithreads -Duseshrplib -Dinc_version_list=none -Dcc=/Users/ariel/private-bin/clang -Dcxx=/Users/ariel/private-bin/clang++ -Dld=/Users/ariel/private-bin/ld -Uloclibpth -Dlibpth=/usr/lib'
+    hint=recommended, useposix=true, d_sigaction=define
+    useithreads=define, usemultiplicity=define
+    useperlio=define, d_sfio=undef, uselargefiles=define, usesocks=undef
+    use64bitint=define, use64bitall=define, uselongdouble=undef
+    usemymalloc=n, bincompat5005=undef
+  Compiler:
+    cc='/Users/ariel/private-bin/clang', ccflags ='-arch x86_64 -arch i386 -isystem/Users/ariel/git/darling/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -isystem/Users/ariel/arch/build/darling/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -isystem/Users/ariel/git/darling/framework-include -DDARLING -fno-common -DPERL_DARWIN -fno-strict-aliasing -pipe -fstack-protector',
+    optimize='-Os',
+    cppflags='-arch x86_64 -arch i386 -isystem/Users/ariel/git/darling/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -isystem/Users/ariel/arch/build/darling/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -isystem/Users/ariel/git/darling/framework-include -DDARLING -fno-common -DPERL_DARWIN -fno-strict-aliasing -pipe -fstack-protector'
+    ccversion='', gccversion='4.2.1 Compatible Apple LLVM 11.0.3 (clang-1103.0.32.62)', gccosandvers=''
+    intsize=4, longsize=8, ptrsize=8, doublesize=8, byteorder=ffff
+    d_longlong=define, longlongsize=8, d_longdbl=define, longdblsize=16
+    ivtype='long', ivsize=8, nvtype='double', nvsize=8, Off_t='off_t', lseeksize=8
+    alignbytes=8, prototype=define
+  Linker and Libraries:
+    ld='ld', ldflags =' -fstack-protector'
+    libpth=/usr/lib
+    libs= 
+    perllibs=
+    libc=, so=dylib, useshrplib=true, libperl=libperl.dylib
+    gnulibc_version=''
+  Dynamic Linking:
+    dlsrc=dl_dlopen.xs, dlext=bundle, d_dlsymun=undef, ccdlflags=' '
+    cccdlflags=' ', lddlflags=' -bundle -undefined dynamic_lookup -fstack-protector'
+
+!NO!SUBS!

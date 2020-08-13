@@ -1,0 +1,5 @@
+#define PROJECT "@PROJECT@"
+#define UPROJECT "@UPROJECT@"
+#define NVERSIONS @NVERSIONS@
+#define DEFAULTVERSION "@DEFAULTVERSION@"
+static const char *versions[] = { @VERSIONS@ };
