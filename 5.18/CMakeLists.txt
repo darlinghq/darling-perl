@@ -339,6 +339,10 @@ add_bundle(List/Util/Util 1.27
 target_compile_definitions(perl5.18_List_Util_Util PRIVATE
 	PERL_EXT
 )
+# see the Perl 5.28 CMakeLists.txt for an explanation
+set_target_properties(perl5.18_List_Util_Util PROPERTIES
+	LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/src/external/perl/5.18/List"
+)
 
 add_bundle(Math/BigInt/FastCalc/FastCalc 0.30
 	perl/dist/Math-BigInt-FastCalc/FastCalc.c

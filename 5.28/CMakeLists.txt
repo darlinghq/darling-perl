@@ -340,6 +340,11 @@ add_bundle(List/Util/Util 1.50
 target_compile_definitions(perl5.28_List_Util_Util PRIVATE
 	PERL_EXT
 )
+# we already have a target that generates Util.bundle, so put this one somewhere else
+# ninja is the only one that warns us about this, but it probably causes silent issues in other build systems as well
+set_target_properties(perl5.28_List_Util_Util PROPERTIES
+	LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/src/external/perl/5.28/List"
+)
 
 add_bundle(Math/BigInt/FastCalc/FastCalc 0.5006
 	perl/cpan/Math-BigInt-FastCalc/FastCalc.c
