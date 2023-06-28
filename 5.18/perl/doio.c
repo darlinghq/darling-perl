@@ -60,6 +60,10 @@
 
 #include <signal.h>
 
+#ifdef DARLING
+extern void _zero_posn_(PerlIO *fp);
+#endif
+
 bool
 Perl_do_openn(pTHX_ GV *gv, const char *oname, I32 len, int as_raw,
 	      int rawmode, int rawperm, PerlIO *supplied_fp, SV **svp,
