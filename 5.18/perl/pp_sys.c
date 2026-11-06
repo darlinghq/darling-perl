@@ -5465,6 +5465,8 @@ PP(pp_syscall)
 	    PUSHp("i386", 4);
 #elif defined(__x86_64__)
 	    PUSHp("x86_64", 6);
+#elif defined(__aarch64__) || defined(__arm64__)
+	    PUSHp("arm64", 5);
 #else
 #error Unknown architecture
 #endif
